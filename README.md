@@ -40,13 +40,13 @@ potential use for labeling products that are based on emissions
 
 ### Problem: Food contributes a big portion of greenhouse gas emissions
 
-# Why does it matter???
+## Why does it matter???
 Global warming is bad ... duh...
 heavily impact the food industry
 species are going extinct
 earth is going to be a lot warmer
 
-# how we will address Problem
+## how we will address Problem
 reccomend diets that will help reduce greenhouse gas emissions
 backed up by Data. Could be implemented by the FDA or department of agriculture by providing reliable food products so that consumers are made aware of their carbon footprints.
 
@@ -55,10 +55,19 @@ backed up by Data. Could be implemented by the FDA or department of agriculture 
 
 # possible data set
 
-# visualizations
-diets in various regions of the world...
-scale world of how much impact each place has
-comparing graph... greenhouse gas vs food and comparing these foods
+## Information Visualizations
+Visualizations presents an accessible way to display our data and gain a grasp on big data. For our research question, we believe that our message would be be conveyed by displaying statistics of each country using color codes. And having a bar graph that would compare different diets. 
+
+![CO2 Emissions](https://edgar.jrc.ec.europa.eu/booklet2017/GHG_per_capita_2012.png)
+Figure 1. This graphic display of the world displays the CO2 emissions of each country. For our project, we hope to do something similar where we display the country's diets on the map. (European Union Joint Research Centre) [1]
+
+![US consumption recommendation](https://www.ers.usda.gov/webdocs/charts/58333/food-availability_fig06-2-_450px.png?v=8730.8)
+Figure 2. This interactive graphic allows users to compare and contrast different years. In our project, we would like to implement something similar when comparing various diets. (Source: USDA) [2]
 
 # team collaboration
+(whoever is gonna work on this should add a little more....)
 Every Thursday from 10:30-12:30.
+
+# References
+[1] Fossil CO2 and GHG Emissions of All World Countries, 2017, edgar.jrc.ec.europa.eu/overview.php?v=CO2andGHG1970-2016and/dst=GHGpc.
+[2] U.S. Diets Are out of Balance with Federal Recommendation, www.ers.usda.gov/data-products/chart-gallery/gallery/chart-detail/?chartId=58334.
