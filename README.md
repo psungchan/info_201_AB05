@@ -18,39 +18,20 @@ University of Washington
 Autumn 2019
 
 ## Problem situation
-Greenhouse gas emissions based on diet
+The food and agriculture sector contributes a significant portion of global greenhouse gas emissions. As greenhouse gas emissions has continued to proliferate, there has been an acceleration towards catastrophic global warming. The advocacy of convenience, coupled with the continual advancements in technology have allowed for a culture of complacency. It is an ethical issue to consume without recognition of ones impact. Despite this, a lack of financial motivation for both producers and consumers in the market will prevent change.
 
-## What is the problem? Why does it matter?
-Greenhouse emissions is on the rise. And food/agriculuture contributes a significant portion to the total emissions. There a lot of people who change their diets based on enviornmental emissions. Individual decisions on food diets may not be substantiated by data.
-
-## Stakeholders
-Both consumers and producers (aka every single person alive)
-
-## Setting
-This is an issue that exists everywhere but we are thinking of just analyzing the United States for now
-
-## Values and Tensions in play
-Financial cost of food for consumer and producers
-impact of global warming and the land that produces the food
-
-## policy and ethic elements
-potential use for labeling products that are based on emissions
-
-## Problem: Food contributes a big portion of greenhouse gas emissions
+## What is the problem? 
+As the population of the world increases and food consumption habits remain stagnent, the amount of preventable greenhouse gases produced by the food and agriculture sector becomes staggering. Superfluous amounts of greenhouse gases are generated due to massive food waste, excessive consumption of livestock, and the conversion of non-agricultural lands to agricultural land.[5] The extremely high consumption of red-meat in particular is a keystone issue. There are excessive inefficiencies throughout the chain of production due to red-meat consumption.
 
 ## Why does it matter?
-Global warming is bad ... duh...
-heavily impact the food industry
-species are going extinct
-earth is going to be a lot warmer
+The proliferation of gases will accelerate the progress towards the brink of disaster due to climate change. Global warming could radically change weather patterns, coastlines, and ultimately degrade the standard of living across the globe. The obvious impact of global warming would be a general increase in the mean temperature across the globe. This impact itself is very dangerous due to changes in precipitation, causing mass droughts and heatwaves in many areas. This would also lead to the rise in sea level, increase in hurricane intensity, and displacement along coastlines.
 
-## How we will address problem
-reccomend diets that will help reduce greenhouse gas emissions
-backed up by Data. Could be implemented by the FDA or department of agriculture by providing reliable food products so that consumers are made aware of their carbon footprints.
+## How it will be addressed?
+A reduction in food waste and focusing on eating low on the food chain would be a necessary step towards sustainable living. A long term solution begins with a recognition and adaptation of the human diet, requiring a transition towards a largely plant-based diet with small allowances. A data-based analysis and clear visual approach would be a powerful method of promoting adoption by a general population. Simplicity and instructional guidence are key methods of changing population behaviour.
 
 ## Research Questions
-What is our current food consumpution looking like?
-What is the optimal diet to reduce greenhouse gas Emissions?
+1. What is the status of our current food consumpution with regards to enviromental impact?
+2. What is the optimal diet to reduce greenhouse gas emissions?
 
 ## Possible Data Set
 #### Dataset 1
@@ -94,5 +75,7 @@ Every Thursday from 10:30-12:30.
 https://ourworldindata.org/co2-and-other-greenhouse-gas-emissions
 [4] Systematic review of greenhouse gas emissions for different fresh food categories
 https://reader.elsevier.com/reader/sd/pii/S0959652616303584?token=C1B9682ECFDECE53AECCB06CB4D6BEBC25A4050980D1CB8ED13C2C6C5D6D0D4D452BBE5DA18E8473B6D25EC6DF229AC9
+[5] Eating meat has 'dire consequences for the planet, says report
+https://www.nationalgeographic.com/environment/2019/01/commission-report-great-food-transformation-plant-diet-climate-change/
 
 
