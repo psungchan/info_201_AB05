@@ -66,8 +66,7 @@ _**Figure 1. This graphic display of the world displays the CO2 emissions of eac
 _**Figure 2. This interactive graphic allows users to compare and contrast different years. In our project, we would like to implement something similar when comparing various diets. (Source: USDA) [2]**_
 
 ## **Team Collaboration**
-(whoever is gonna work on this should add a little more....)
-Every Thursday from 10:30-12:30.
+_**Meet every Thursday from 10:30-12:30 because this is the only time that works for all of us. We will separate the work equally and based off of everyones strength. Everyone will have their roles and involvement in this project.**_
 
 ## **References**
 _**[1] Fossil CO2 and GHG Emissions of All World Countries, 2017, edgar.jrc.ec.europa.eu/overview.php?v=CO2andGHG1970-2016and/dst=GHGpc.
