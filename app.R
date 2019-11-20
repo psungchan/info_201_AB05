@@ -1,8 +1,8 @@
 library("shiny")          # in each relevant script
 library("DT")
 
-source("~/documents/info201/final_proj/info_201_AB05/data_wrangling.R")
-source("~/documents/info201/final_proj/info_201_AB05/analysis.R")
+source("./data_wrangling.R")
+source("./analysis.R")
 
 # Define content for the First page
 # First page allows the user to select different meals, and we
