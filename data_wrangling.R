@@ -2,11 +2,11 @@
 
 library(dplyr)
 
-simple_df <- read.csv("~/documents/info201/final_proj/info_201_AB05/data/simple_ghg_food.csv")
+simple_df <- read.csv("./data/simple_ghg_food.csv")
 
-global_df <- read.csv("~/Documents/info201/final_proj/info_201_AB05/data/GHG_Foods_Global.csv")
+global_df <- read.csv("./data/GHG_Foods_Global.csv")
 
-by_food <- read.csv("~/Documents/info201/final_proj/info_201_AB05/data/recipe_calculations.csv")
+by_food <- read.csv("./data/recipe_calculations.csv")
 
 global_df_ghg <- global_df %>% # simplifies to just ghg emissions
   group_by(Food.type) %>% 

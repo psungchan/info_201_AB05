@@ -5,7 +5,7 @@ library(plotly)
 library(ggplot2)
 library(leaflet)
 
-source("~/Documents/info201/final_proj/info_201_AB05/data_wrangling.R")
+source("./info_201_AB05/data_wrangling.R")
 
 ghg_vs_product <- function(df) {
   bar <- qplot(
