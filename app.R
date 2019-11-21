@@ -1,8 +1,8 @@
 library("shiny")          # in each relevant script
 library("DT")
 
-source("./data_wrangling.R")
-source("./analysis.R")
+source("data_wrangling.R")
+source("analysis.R")
 
 # Define content for the First page
 # First page allows the user to select different meals, and we
@@ -20,7 +20,6 @@ page_one <- tabPanel(
 page_two <- tabPanel(
   "Emissions by Food",
   titlePanel("Emissions by Food"),
-  
   sidebarLayout(
     sidebarPanel(
       selectInput(
@@ -56,9 +55,10 @@ page_three <- tabPanel(
 
  #Define content for the third page
 page_four <- tabPanel(
-    "Third Page", # label for the tab in the navbar
-    titlePanel("Water Usage Graph"),
-    renderPlot(water_usage, width = "auto", height = "auto")
+    "Third Page", 
+    mainPanel(
+      plotlyOutput("plot1")
+    )
 )
 
 my_ui <- navbarPage(
@@ -92,11 +92,16 @@ my_server <- function(input, output, session) {
   })
   
   output$plot = renderPlot({
-    if(input$select3 == "GHG vs Product") {
+    if(input$select3 == "GHG vs Product") { # dont do this... if choice is select 
       ghg_vs_product(simple_df_ghg)
     } 
   })
   
+  output$plot1 <- renderPlotly({
+    plot_ly(simple_df, x = ~Freshwater.Withdrawals, 
+            y = ~Product, type = 'bar', 
+            name = 'water Usage')
+  })
 }
 
 shinyApp(ui = my_ui, server = my_server)

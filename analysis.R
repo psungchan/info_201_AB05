@@ -5,9 +5,8 @@ library(plotly)
 library(ggplot2)
 library(leaflet)
 
-source("./data_wrangling.R")
+source("data_wrangling.R")
 
-source("./info_201_AB05/data_wrangling.R")
 
 ghg_vs_product <- function(df) {
   bar <- qplot(
@@ -24,9 +23,9 @@ ghg_vs_product <- function(df) {
 
 ghg_vs_product(simple_df_ghg)
 
-water_usage <- function(){
-  plot <- plot_ly(simple_df, x = ~Freshwater.Withdrawals, 
+
+  plot1 <- plot_ly(simple_df, x = ~Freshwater.Withdrawals, 
                y = ~Product, type = 'bar', 
                name = 'water Usage')
-  return(plot)
-}
+
+
