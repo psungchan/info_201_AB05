@@ -35,6 +35,7 @@ page_two <- tabPanel(
   )
 )
 
+
  #Define content for the Second page
 page_three <- tabPanel(
   "Graphical Representations", # label for the tab in the navbar
