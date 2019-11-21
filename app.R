@@ -26,7 +26,7 @@ page_two <- tabPanel(
       selectInput(
         inputId = "select",
         label = h3("Meal Choice"),
-        choices = list("Hamburger")
+        choices = list("Hamburger", "burger")
       )
     ),
     mainPanel(
@@ -49,14 +49,16 @@ page_three <- tabPanel(
       )
     ),
     mainPanel(
-      plotOutput("plot"), # plot
+      plotOutput("plot") # plot
     )
   )
 )
 
  #Define content for the third page
 page_four <- tabPanel(
-  "Third Page" # label for the tab in the navbar
+    "Third Page", # label for the tab in the navbar
+    titlePanel("Water Usage Graph"),
+    renderPlot(water_usage, width = "auto", height = "auto")
 )
 
 my_ui <- navbarPage(
@@ -84,14 +86,17 @@ my_server <- function(input, output, session) {
   output$table = renderDataTable({
     if(input$select == "Hamburger") {
       hamburger
+    } else if (input$select == "burger") {
+      hamburger
     }
   })
   
   output$plot = renderPlot({
     if(input$select3 == "GHG vs Product") {
       ghg_vs_product(simple_df_ghg)
-    }
+    } 
   })
+  
 }
 
 shinyApp(ui = my_ui, server = my_server)
