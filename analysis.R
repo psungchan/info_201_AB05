@@ -24,7 +24,7 @@ ghg_vs_product <- function(df) {
 ghg_vs_product(simple_df_ghg)
 
 
-  plot1 <- plot_ly(simple_df, x = ~Freshwater.Withdrawals, 
+water_usage <- plot_ly(simple_df, x = ~Freshwater.Withdrawals, 
                y = ~Product, type = 'bar', 
                name = 'water Usage')
 

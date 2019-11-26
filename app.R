@@ -99,9 +99,7 @@ my_server <- function(input, output, session) {
   })
   
   output$plot1 <- renderPlotly({
-    plot_ly(simple_df, x = ~Freshwater.Withdrawals, 
-            y = ~Product, type = 'bar', 
-            name = 'water Usage')
+    water_usage
   })
 }
 
