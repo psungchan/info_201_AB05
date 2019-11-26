@@ -1,5 +1,3 @@
-# Analysis and Plots
-
 library(dplyr)
 library(plotly)
 library(ggplot2)
