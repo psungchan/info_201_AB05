@@ -1,1 +1,3 @@
-https://github.com/psungchan/info_201_AB05/wiki/technical-report
+https://laurenng.shinyapps.io/info_201_AB05/
+
+^ our shiny application 
