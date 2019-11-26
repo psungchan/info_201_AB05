@@ -1,4 +1,4 @@
-library("shiny")          # in each relevant script
+library("shiny")  
 library("DT")
 
 source("data_wrangling.R")
