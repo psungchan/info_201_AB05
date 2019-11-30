@@ -3,45 +3,45 @@
 # present a datatable on the emissions of each meal and where the emissions
 # come from
 
-page_one <- tabPanel(
-  h1("Greenhouse Gas Emissions By Food. What's your carbon footprint?"),
+
+source("data_wrangling.R")
+source("analysis.R")
+
+intro <- tabPanel(
+  h1("Greenhouse Gas Emissions By Food... What's your ''food'' print?"),
   h4("As greenhouse gas emissions are on the rise and global temperatures with it,
      consumers are more and more likely to make decisions based on their carbon footprint. 
      Food production and agriculture contributes to a large share of these emissions,
      so it . We have borrowed this data from Stephen Clune et al to present an app
      in which consumers can make informed decisions about their diet.")
 )
-page_two <- tabPanel(
-  "Emissions by Food",
-  titlePanel("Emissions by Food"),
+emissions_by_meal <- tabPanel(
+  "Emissions by Meal",
+  titlePanel("Emissions by Meal"),
   sidebarLayout(
     sidebarPanel(
       selectInput(
-        inputId = "select",
+        inputId = "meal_select",
         label = h3("Meal Choice"),
-        choices = list("Hamburger", "burger")
-      )
+        choices = list("Hamburger")
+      ),
+      imageOutput("meal_image"), # picture of meal
     ),
     mainPanel(
-      imageOutput("image"), # picture of meal
-      dataTableOutput("table") # datatable of meal
+      h3(textOutput("meal_ghg_text")), #outputs the sum of ghg emissions
+      dataTableOutput("meal_table") # datatable of meal
     )
   )
 )
 
-
-source("data_wrangling.R")
-source("analysis.R")
-
-
 #Define content for the Second page
-page_three <- tabPanel(
+graphs <- tabPanel(
   "Graphical Representations", # label for the tab in the navbar
   titlePanel("Graphical Representations"),
   sidebarLayout(
     sidebarPanel(
       selectInput(
-        inputId = "select3",
+        inputId = "graph_select",
         label = h3("Graph Choice"),
         choices = list("GHG vs Product")
       )
@@ -53,17 +53,48 @@ page_three <- tabPanel(
 )
 
 #Define content for the third page
-page_four <- tabPanel(
-  "Third Page", 
+water_usage <- tabPanel(
+  "Water Usage", 
   mainPanel(
     plotlyOutput("plot1")
   )
 )
 
+# Define the fourth page
+recipe_input <- tabPanel(
+  "Input your recipe", 
+  mainPanel(
+    one_ingredient
+  ),
+  sidebarPanel(
+    textOutput("user_ghg"),
+    actionButton("add", "Add Ingredient")
+  )
+)
+
+one_ingredient <-fluidRow(
+  id = "ingred",
+  column(6,
+         selectInput(
+           inputId = "ingredient",
+           label = h3("Ingredient Choice"),
+           choices = sort(user_df$Product)
+         )
+  ),
+  column(6,
+         numericInput(
+           inputId = "weight",
+           label = h3("Amount (kg)"),
+           value = NA
+         )
+  )
+)
+
 my_ui <- navbarPage(
-  "My Application",
-  page_one,
-  page_two,
-  page_three,
-  page_four
+  "Greenhouse Emissions by Food",
+  intro,
+  emissions_by_meal,
+  graphs,
+  water_usage,
+  recipe_input
 )
