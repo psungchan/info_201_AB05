@@ -64,19 +64,21 @@ water_usage <- tabPanel(
 recipe_input <- tabPanel(
   "Input your recipe", 
   mainPanel(
-    one_ingredient
+    h1(id = "recipeheader", "Your Recipe"),
+    uiOutput("newIngred")
   ),
   sidebarPanel(
-    textOutput("user_ghg"),
+    h3(textOutput("user_ghg")),
+    actionButton("calculate", "Calculate GHG Emissions"),
     actionButton("add", "Add Ingredient")
   )
 )
 
-one_ingredient <-fluidRow(
+one_ingredient <- fluidRow(
   id = "ingred",
   column(6,
          selectInput(
-           inputId = "ingredient",
+           inputId = paste0("ingredient", 1),
            label = h3("Ingredient Choice"),
            choices = sort(user_df$Product)
          )
@@ -84,7 +86,7 @@ one_ingredient <-fluidRow(
   column(6,
          numericInput(
            inputId = "weight",
-           label = h3("Amount (kg)"),
+           label = h3("Amount (kg or L)"),
            value = NA
          )
   )

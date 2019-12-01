@@ -42,8 +42,6 @@ user_df <- global_df_ghg %>%
     Product.Emissions = NA
   )
 
-k <- seq(1, 999)
-
-a <- list()
+ghg_values <- integer(999)
 
 

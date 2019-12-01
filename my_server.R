@@ -46,22 +46,54 @@ my_server <- function(input, output, session) {
     water_usage
   })
   
-  #------Server for user input meal----------------------------------------
+  #------Server for user input meal------------------------------------------
+  ingredients <- reactiveValues(count = c(1))
   
-  observeEvent(input$add, {
-    insertUI(
-      selector = "#ingred",
-      where = "afterEnd",
-      ui = one_ingredient
-    )
+  # Button to calculate emissions
+  emission_calc <- eventReactive(input$calculate, {
+    ghg_list <- lapply(ingredients$count, function(i){
+      ing_id <- paste0("ingredient", i)
+      weight_id <- paste0("weight", i)
+      emission_df <- user_df[user_df$Product == input[[ing_id]], "GHG.Emissions"]
+      emission <- emission_df$GHG.Emissions[[1]]
+      weight <- input[[weight_id]]
+      emission*weight
+    })
+    do.call(sum, ghg_list)
   })
   
-  output$user_ghg = renderText({
-    emission <- user_df[user_df$Product == input$ingredient, "GHG.Emissions" ]
-    weight <- input$weight
-    a <-append(a, emission*weight)
-    user_tot_emissions <- sum(a)
-    str <- paste(user_tot_emissions, "kg CO2")
+  output$user_ghg <- renderText({
+    user_tot_emissions <- emission_calc()
+    str <- paste(user_tot_emissions, "kg CO2 Equivalents")
+  })
+  
+  observeEvent(input$add,{
+    ingredients$count <- c(ingredients$count, max(ingredients$count)+1)
+  })
+  
+  observe({
+    output$newIngred <- renderUI({
+      rows <- lapply(ingredients$count, function(i){
+        fluidRow(
+          column(6,
+                 selectInput(
+                   inputId = paste0("ingredient", i),
+                   label = "Ingredient",
+                   choices = sort(user_df$Product)
+                 ),
+          ),
+          column(6,
+                 numericInput(
+                   inputId = paste0("weight", i),
+                   label = "Weight (kg or L)",
+                   min = 0,
+                   value = 0
+                 )
+          )
+        )
+      })
+      do.call(shiny::tagList,rows)
+    })
   })
   
 }
