@@ -1,6 +1,8 @@
 # Analysis of GHG emissions by meal
 
 library(dplyr)
+library(plotly)
+library(ggplot2)
 
 simple_df <- read.csv("./data/simple_ghg_food.csv")
 global_df <- read.csv("./data/GHG_Foods_Global.csv")
@@ -13,16 +15,20 @@ global_df$Food.type = trimws(global_df$Food.type)
 global_df$Food.type[global_df$Food.type == 'Ling Common'] <- 'Ling'
 
 global_df_ghg <- global_df %>%
-  rename(Product = Food.type) %>%
+  rename(Product = Food.type) %>% 
+  rename(CO2 = kg.CO2.eq.kg.produce..BFM.or.L.after.conversion) %>%
+  mutate(CO2 = as.character(CO2)) %>% 
+  mutate(CO2 = as.double(CO2)) %>% 
   group_by(Product) %>% 
-  summarize(
-    GHG.Emissions = sum(as.numeric(kg.CO2.eq.kg.produce..BFM.or.L.after.conversion), na.rm = TRUE) / n()
+  summarise(
+    GHG.Emissions = mean(CO2, na.rm = TRUE)
   ) %>% 
   arrange(-GHG.Emissions)
 
-#write.csv(global_df_ghg)
+View(global_df_ghg)
 
-#-----
+write.csv(global_df_ghg, "global_ghg_df.csv", row.names = FALSE)
+
 global_df <- tail(global_df, -1)
 
 simple_df_ghg <- simple_df %>%  # simplifies df to just ghg emissions
@@ -34,14 +40,24 @@ hamburger <- by_food %>% # creates a dataframe for hamburger
          Hamburger.Veggies, Hamburger.Bun, Hamburger.Total, GHG.Emissions) %>% 
   filter(!is.na(GHG.Emissions))
 
-#----Creates DF for user-input manipulation----------------
+#---------Creates Water Data and Land Data bar graphs----------------------
 
-user_df <- global_df_ghg %>% 
-  mutate(
-    Weight = NA,
-    Product.Emissions = NA
-  )
+productChoices <- as.character(simple_df$Product)
 
-ghg_values <- integer(999)
+water_data <- function(listProduct) {
+  single <- simple_df[simple_df$Product %in% listProduct, ]
+  p<-ggplot(data=single, aes(x=Product, y=Freshwater.Withdrawals, fill = Product)) +
+    geom_bar(stat="identity") + theme_minimal()
+  p + coord_flip()
+}
+
+land_data <- function(listProduct) {
+  single <- simple_df[simple_df$Product %in% listProduct, ]
+  p<-ggplot(data=single, aes(x=Product, y=Land.Usage, fill = Product)) +
+    geom_bar(stat = "identity", width=0.7) + theme_minimal()
+  p + coord_flip()
+}
+
+land_data(c("Wine", "Tofu", "Rapeseed Oil", "Nuts"))
 
 

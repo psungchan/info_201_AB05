@@ -53,10 +53,20 @@ graphs <- tabPanel(
 )
 
 #Define content for the third page
-water_usage <- tabPanel(
-  "Water Usage", 
-  mainPanel(
-    plotlyOutput("plot1")
+page_four <- tabPanel(
+  "Land and Water Usage",
+  sidebarLayout(
+    sidebarPanel(
+      checkboxGroupInput("product", "Choose food items:",
+                         choiceNames = productChoices,
+                         choiceValues = productChoices,
+                         selected = c("Poultry Meat", "Apple")
+      )
+    ),
+    mainPanel(
+      plotOutput("water"),
+      plotOutput("land")
+    )
   )
 )
 
@@ -97,6 +107,6 @@ my_ui <- navbarPage(
   intro,
   emissions_by_meal,
   graphs,
-  water_usage,
+  page_four,
   recipe_input
 )

@@ -36,17 +36,26 @@ my_server <- function(input, output, session) {
     
   #----Server for plot outputs------------------------------------------
   
-  output$plot = renderPlot({
-    if(input$graph_select == "GHG vs Product") { # dont do this... if choice is select 
-      ghg_vs_product(simple_df_ghg)
-    }
+  ##### Third page plots
+  
+  water_table <- reactive({
+    water_data(input$product)
   })
   
-  output$plot1 <- renderPlotly({
-    water_usage
+  output$water <- renderPlot({
+    water_table()
   })
   
-  #------Server for user input meal------------------------------------------
+  land_table <- reactive({
+    land_data(input$product)
+  })
+  
+  output$land <- renderPlot({
+    land_table()
+  })
+  
+  #---------------Server for user-input meal------------------------------------------
+  
   ingredients <- reactiveValues(count = c(1))
   
   # Button to calculate emissions
@@ -57,7 +66,7 @@ my_server <- function(input, output, session) {
       emission_df <- user_df[user_df$Product == input[[ing_id]], "GHG.Emissions"]
       emission <- emission_df$GHG.Emissions[[1]]
       weight <- input[[weight_id]]
-      emission*weight
+      round(emission*weight)
     })
     do.call(sum, ghg_list)
   })
@@ -95,5 +104,4 @@ my_server <- function(input, output, session) {
       do.call(shiny::tagList,rows)
     })
   })
-  
 }
